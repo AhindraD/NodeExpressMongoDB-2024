@@ -11,7 +11,7 @@ router.get("/:id", (req, res) => {
     //http://localhost:3000/todos/1?mode=dark&region=in
     console.log(req.params);
     console.log(req.query);
-    res.send({ resp: "get all todos", slug: req.params.id, query: req.query })
+    res.send({ resp: "get all todos", slug: req.params.id, queries: req.query })
 })
 
 router.get("/completed", (req, res) => {
