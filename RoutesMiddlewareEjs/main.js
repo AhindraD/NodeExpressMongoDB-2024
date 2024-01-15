@@ -32,6 +32,17 @@ app.get("/access", (req, res) => {
     res.sendFile("templates/index.html", { root: __dirname })
 })
 
+// https://github.com/mde/ejs/wiki/Using-EJS-with-Express
+//Ejs template engine
+app.set('view engine', 'ejs');
+
+app.get("/inject-ejs/:siteName", (req, res) => {
+    const { siteName } = req.params;
+    const { placeHolder } = req.query;
+    // http://localhost:3000/inject-ejs/Ahindra?placeHolder=search_now
+    console.log("simple root GET public");
+    res.render("index", {siteName,placeHolder})
+})
 
 
 app.listen(port, () => {
